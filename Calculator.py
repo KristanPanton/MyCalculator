@@ -10,12 +10,15 @@ class Calculator(Frame):
         master.geometry()
 
         # self.bgcolor = "#232235"
-        self.bgcolor = "#0F1108"
+        self.bgcolor = "#111218"
+
         # self.fgcolor = "#1F8FAA"
-        self.fgcolor = "#FE4A49"
+        # self.fgcolor = "#FE4A49"
+        self.fgcolor = "#7699E5"
+
         # self.bgsecondary = "#327DFF"
         # self.bgsecondary = "#092B34"
-        self.bgsecondary = "#510000"
+        self.bgsecondary = "#2C3858"
 
         self.master = master
         self.master.bind('<Return>', self.equals)
@@ -45,9 +48,9 @@ class Calculator(Frame):
         self.entry_style.configure("TEntry",
                                    background=self.bgcolor,
                                    foreground=self.fgcolor,
-                                   fieldbackground="#141414",
+                                   fieldbackground="#111218",
                                    selectbackground=self.fgcolor,
-                                   selectforeground="#141414",
+                                   selectforeground="#111218",
                                    borderwidth=0
                                    )
 
@@ -74,7 +77,7 @@ class Calculator(Frame):
         try:
             self.result = eval("math.pow(" + self.newtext + ", 2)")
             self.hasCalculated = True
-        except SyntaxError or NameError:
+        except SyntaxError or NameError or TypeError:
             self.e.delete(0, END)
             self.e.insert(END, self.invalidInStr)
         else:
@@ -87,7 +90,7 @@ class Calculator(Frame):
         try:
             self.result = eval("math.sqrt(" + self.newtext + ")")
             self.hasCalculated = True
-        except SyntaxError or NameError:
+        except SyntaxError or NameError or TypeError:
             self.e.delete(0, END)
             self.e.insert(END, self.invalidInStr)
         else:
@@ -107,7 +110,7 @@ class Calculator(Frame):
         try:
             self.result = eval(self.newtext)
             self.hasCalculated = True
-        except SyntaxError or NameError:
+        except SyntaxError or NameError or TypeError:
             self.e.delete(0, END)
             self.e.insert(END, self.invalidInStr)
         else:
