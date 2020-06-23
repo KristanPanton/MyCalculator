@@ -77,7 +77,7 @@ class Calculator(Frame):
         try:
             self.result = eval("math.pow(" + self.newtext + ", 2)")
             self.hasCalculated = True
-        except SyntaxError or NameError or TypeError:
+        except (SyntaxError, NameError, TypeError):
             self.e.delete(0, END)
             self.e.insert(END, self.invalidInStr)
         else:
@@ -90,7 +90,7 @@ class Calculator(Frame):
         try:
             self.result = eval("math.sqrt(" + self.newtext + ")")
             self.hasCalculated = True
-        except SyntaxError or NameError or TypeError:
+        except (SyntaxError, NameError, TypeError):
             self.e.delete(0, END)
             self.e.insert(END, self.invalidInStr)
         else:
@@ -110,7 +110,7 @@ class Calculator(Frame):
         try:
             self.result = eval(self.newtext)
             self.hasCalculated = True
-        except SyntaxError or NameError or TypeError:
+        except (SyntaxError, NameError, TypeError):
             self.e.delete(0, END)
             self.e.insert(END, self.invalidInStr)
         else:
